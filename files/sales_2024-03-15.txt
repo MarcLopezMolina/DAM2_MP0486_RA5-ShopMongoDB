@@ -1,0 +1,9 @@
+1;Client=uno;Date=15-03-2024 14:13:13;
+1;Products=Manzana,20,00€;Fresa,10,00€;;
+1;Amount=31,20€;
+2;Client=dos;Date=15-03-2024 14:13:25;
+2;Products=Fresa,10,00€;Manzana,20,00€;;
+2;Amount=31,20€;
+3;Client=terc;Date=15-03-2024 14:13:41;
+3;Products=Manzana,20,00€;Fresa,10,00€;;
+3;Amount=31,20€;
