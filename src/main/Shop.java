@@ -1,8 +1,5 @@
 package main;
 
-import dao.Dao;
-import dao.DaoImplFile;
-import dao.DaoImplJDBC;
 import model.Product;
 import model.Sale;
 import model.Amount;
@@ -15,7 +12,11 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
-import dao.DaoImplHibernate;
+import dao.Dao;
+import dao.DaoImplFile; //Implementación para la práctica 1
+import dao.DaoImplJDBC; //Implementación para la práctica 2
+import dao.DaoImplHibernate; //Implementación para la práctica 3
+import dao.DaoImplMongoDB; //Implementación para la práctica 5
 
 
 public class Shop
@@ -34,10 +35,10 @@ public class Shop
 	    inventory = new ArrayList<Product>();
 	    sales = new ArrayList<Sale>();
 
-	    // Usamos Hibernate en lugar de JDBC
-	    dao = new DaoImplHibernate();
+	    // Usamos MongoDB en lugar de Hibernate
+	    dao = new DaoImplMongoDB();
 
-	    // Conectamos Hibernate
+	    // Conectamos MongoDB
 	    dao.connect();
 	}
 
