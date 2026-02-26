@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.Date;
+
 import org.bson.types.ObjectId;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -116,23 +118,28 @@ public class DaoImplMongoDB implements Dao
 	{
 	    try
 	    {
+	        Date now = new Date();
+
 	        for (Product p : inventario)
 	        {
 	            Document priceDoc = new Document("value", p.getWholesalerPrice().getValue())
 	                                    .append("currency", "€");
 
-	            Document doc = new Document("name", p.getName())
+	            Document doc = new Document("id", p.getId())
+	                    .append("name", p.getName())
 	                    .append("wholesalerPrice", priceDoc)
 	                    .append("available", p.isAvailable())
 	                    .append("stock", p.getStock())
-	                    .append("id", p.getId());
+	                    .append("created_at", now);
 
 	            historicalCollection.insertOne(doc);
 	        }
+
 	        return true;
 	    }
 	    catch (Exception e)
 	    {
+	        e.printStackTrace();
 	        return false;
 	    }
 	}
