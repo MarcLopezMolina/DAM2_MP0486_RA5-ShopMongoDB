@@ -9,7 +9,6 @@ import model.Product;
 
 public class DaoImplJDBC implements Dao
 {
-
 	Connection connection;
 
 	@Override
@@ -67,6 +66,7 @@ public class DaoImplJDBC implements Dao
 		{
 			e.printStackTrace();
 		}
+		
 		return employee;
 	}
 
@@ -194,7 +194,8 @@ public class DaoImplJDBC implements Dao
 				}
 			}
 
-		} catch (SQLException e)
+		} 
+		catch (SQLException e)
 		{
 			e.printStackTrace();
 		}
@@ -248,5 +249,3 @@ public class DaoImplJDBC implements Dao
 		}
 	}
 }
-
-

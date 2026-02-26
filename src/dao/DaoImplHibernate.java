@@ -5,7 +5,6 @@ import model.ProductHistory;
 import model.Employee;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +15,7 @@ public class DaoImplHibernate implements Dao
     @Override
     public void connect()
     {
-        sessionFactory = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .buildSessionFactory();
+        sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     }
 
     @Override
@@ -51,6 +48,7 @@ public class DaoImplHibernate implements Dao
             {
                 session.save(new ProductHistory(p));
             }
+            
             tx.commit();
             session.close();
             return true;
@@ -85,17 +83,20 @@ public class DaoImplHibernate implements Dao
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         Product p = session.get(Product.class, productId);
+        
         if (p != null)
         {
             session.delete(p);
         }
+        
         tx.commit();
         session.close();
     }
 
+    //This method is not used
     @Override
     public Employee getEmployee(int employeeId, String password)
     {
-        return null; // fuera del alcance
+        return null;
     }
 }

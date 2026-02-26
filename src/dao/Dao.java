@@ -2,7 +2,6 @@ package dao;
 
 import model.Employee;
 import model.Product;
-
 import java.util.ArrayList;
 
 public interface Dao

@@ -9,7 +9,6 @@ import model.Product;
 
 public class DaoImplFile implements Dao
 {
-
 	@Override
 	public ArrayList<Product> getInventory()
 	{

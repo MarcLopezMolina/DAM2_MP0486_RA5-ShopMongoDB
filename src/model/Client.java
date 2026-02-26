@@ -59,5 +59,4 @@ public class Client extends Person implements Payable
 	{
 		return "Client [memberId=" + memberId + ", balance=" + balance + ", name=" + name + "]";
 	}
-
 }

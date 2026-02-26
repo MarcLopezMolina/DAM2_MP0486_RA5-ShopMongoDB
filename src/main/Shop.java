@@ -18,7 +18,6 @@ import dao.DaoImplJDBC; //Implementación para la práctica 2
 import dao.DaoImplHibernate; //Implementación para la práctica 3
 import dao.DaoImplMongoDB; //Implementación para la práctica 5
 
-
 public class Shop
 {
 	private Amount cash = new Amount(100.00);

@@ -21,7 +21,8 @@ public class ShopView extends JFrame implements ActionListener, KeyListener
 	private JButton btnRemoveProduct;
 	private JButton btnViewInventory;
 	private JButton btnExportInventory;
-
+	private JButton btnExit;
+	
 	public ShopView()
 	{
 		setTitle("MiTienda.com - Menú principal");
@@ -85,6 +86,13 @@ public class ShopView extends JFrame implements ActionListener, KeyListener
 		btnRemoveProduct.setBounds(99, 290, 236, 40);
 		btnRemoveProduct.addActionListener(this);
 		contentPane.add(btnRemoveProduct);
+		
+		btnExit = new JButton("10. Salir");
+		btnExit.setHorizontalAlignment(SwingConstants.LEFT);
+		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnExit.setBounds(99, 340, 236, 40);
+		btnExit.addActionListener(this);
+		contentPane.add(btnExit);
 	}
 
 	@Override
@@ -121,12 +129,14 @@ public class ShopView extends JFrame implements ActionListener, KeyListener
 			openInventoryView();
 		else if (src == btnRemoveProduct)
 			openProductView(Constants.OPTION_REMOVE_PRODUCT);
+		else if (src == btnExit)
+		    exitApplication();
 	}
 
 	private void exportInventory()
 	{
 		boolean ok = shop.writeInventory();
-		if (ok = true)
+		if (ok == true)
 			JOptionPane.showMessageDialog(this, "Inventario exportado correctamente.", "Éxito",
 					JOptionPane.INFORMATION_MESSAGE);
 		else
@@ -165,5 +175,21 @@ public class ShopView extends JFrame implements ActionListener, KeyListener
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
+	}
+	
+	private void exitApplication()
+	{
+	    int confirm = JOptionPane.showConfirmDialog(
+	            this,
+	            "¿Seguro que deseas salir?",
+	            "Confirmar salida",
+	            JOptionPane.YES_NO_OPTION);
+
+	    if (confirm == JOptionPane.YES_OPTION)
+	    {
+	        shop = null;
+	        dispose();
+	        System.exit(0);
+	    }
 	}
 }
