@@ -2,7 +2,6 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import org.bson.types.ObjectId;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
@@ -172,3 +171,4 @@ public class DaoImplMongoDB implements Dao
 	{
 	}
 }
+
