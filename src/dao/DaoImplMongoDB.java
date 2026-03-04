@@ -63,7 +63,6 @@ public class DaoImplMongoDB implements Dao
 	@Override
 	public void addProduct(Product product)
 	{
-	    // Obtener el id máximo actual
 	    Document lastProduct = inventoryCollection
 	            .find()
 	            .sort(new Document("id", -1))
